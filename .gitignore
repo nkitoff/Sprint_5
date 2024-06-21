@@ -1,0 +1,13 @@
+
+venv/
+env/
+
+.venv/
+.env/
+pip-log.txt
+.pytest_cache/
+.coverage
+.pytest_cache/
+.coverage
+geckodriver.log
+config.ini
