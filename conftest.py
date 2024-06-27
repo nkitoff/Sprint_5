@@ -7,6 +7,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from faker import Faker
 import random
+from constants import  Constants
+from constants import  URLs
 faker = Faker()
 
 
@@ -17,7 +19,7 @@ def driver():
     chrome_options.add_argument("--disable-popup-blocking")
     chrome_options.add_argument("--disable-notifications")
     browser = webdriver.Chrome(options=chrome_options)
-    browser.get(constants.URL)
+    browser.get(URLs.URL)
     yield browser
     browser.quit()
 
@@ -25,8 +27,8 @@ def driver():
 def login(driver):
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable(Locators.lk_button_in_head)).click()
     WebDriverWait(driver, 20).until(EC.visibility_of_element_located(Locators.auth_header_auth_page))
-    driver.find_element(*Locators.email_input_auth_and_regist_page).send_keys(constants.CORRECT_EMAIL)
-    driver.find_element(*Locators.password_input_auth_and_registr).send_keys(constants.CORRECT_PASSWORD)
+    driver.find_element(*Locators.email_input_auth_and_regist_page).send_keys(Constants.CORRECT_EMAIL)
+    driver.find_element(*Locators.password_input_auth_and_registr).send_keys(Constants.CORRECT_PASSWORD)
     driver.find_element(*Locators.auth_button_auth_page).click()
     WebDriverWait(driver, 20).until(EC.visibility_of_element_located(Locators.main_header_main_page))
     return driver

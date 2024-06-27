@@ -1,7 +1,8 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import constants
 from locators import Locators
+from constants import  Constants
+from constants import  URLs
 
 class TestLk():
 
@@ -11,7 +12,7 @@ class TestLk():
         lk_email_element = WebDriverWait(driver, 20).until(EC.visibility_of_element_located(Locators.email_field_lk_page))
         lk_email = lk_email_element.get_attribute("value")
         current_url = driver.current_url
-        assert lk_email == constants.CORRECT_EMAIL and current_url == constants.URL_LK_PAGE
+        assert lk_email == Constants.CORRECT_EMAIL and current_url == URLs.URL_LK_PAGE
 
 
 
